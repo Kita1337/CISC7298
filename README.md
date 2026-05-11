@@ -123,5 +123,3 @@ Users can ask additional questions after the initial analysis.
 ## Notes
 
 This project is developed for academic purposes as the final project of CISC7298.
-
-The system is designed as a lightweight prototype for intelligent document analysis and structured document understanding.
