@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DocuMind Agent V2</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style_v2.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-card">
+        <div class="brand-badge">V2 Interface</div>
+        <h1>DocuMind</h1>
+        <p>Intelligent Document Analysis and Structuring System</p>
+      </div>
+
+      <div class="panel">
+        <h2>Upload File</h2>
+        
+        <div class="file-input-wrapper">
+          <input type="text" id="fakeFileInput" value="No file selected" readonly>
+          <button type="button" id="chooseFileBtn">Choose File</button>
+        </div>
+
+        <input type="file" id="pdfFile" accept=".pdf,.png,.jpg,.jpeg" hidden>
+
+      </div>
+
+      <div class="panel">
+        <h2>Analysis Mode</h2>
+        <label><input type="radio" name="mode" value="General Analysis" checked> General Analysis</label>
+        <label><input type="radio" name="mode" value="Recruitment Analysis"> Recruitment Document</label>
+        <label><input type="radio" name="mode" value="Contract Analysis"> Contract Analysis</label>
+        <label><input type="radio" name="mode" value="Academic Paper Analysis"> Academic Paper</label>
+      </div>
+
+      <div class="panel">
+        <h2>System Status</h2>
+        <div id="statusText" class="status success">Status: Waiting for file selection</div>
+      </div>
+
+      <div class="panel">
+        <h2>Actions</h2>
+        <div class="action-buttons">
+          <button id="analyzeBtn">Start Analysis</button>
+          <button id="exportBtn">Export Result</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="hero-card">
+        <div>
+          <div class="hero-tag">AI Document Workspace</div>
+          <h2>Intelligent Document Analysis Panel</h2>
+          <p>
+            Upload a PDF or image file. The system will automatically extract text,
+            perform structured analysis, and support follow-up questions.
+          </p>
+        </div>
+      </section>
+
+      <section class="overview-grid">
+        <div class="mini-card">
+          <span class="mini-title">Document Type</span>
+          <div id="docType" class="mini-value">Waiting for analysis...</div>
+        </div>
+
+        <div class="mini-card">
+          <span class="mini-title">OCR Quality</span>
+          <div id="ocrQuality" class="mini-value">Waiting for analysis...</div>
+        </div>
+
+        <div class="mini-card">
+          <span class="mini-title">Current Mode</span>
+          <div id="currentMode" class="mini-value">General Analysis</div>
+        </div>
+
+        <div class="mini-card">
+          <span class="mini-title">Detected Title</span>
+          <div id="detectedTitle" class="mini-value">Waiting for analysis...</div>
+        </div>
+
+        <div class="mini-card">
+          <span class="mini-title">Document Structure</span>
+          <div id="docStructure" class="mini-value">Waiting for analysis...</div>
+        </div>
+      </section>
+
+      <section class="result-grid">
+        <div class="content-card">
+          <h3>Summary</h3>
+          <div id="summary" class="content-box">Waiting for analysis...</div>
+        </div>
+
+        <div class="content-card">
+          <h3>Key Data</h3>
+          <div id="keyData" class="content-box">Waiting for analysis...</div>
+        </div>
+
+        <div class="content-card">
+          <h3>Important Clauses</h3>
+          <div id="terms" class="content-box">Waiting for analysis...</div>
+        </div>
+
+        <div class="content-card">
+          <h3>Reading Advice</h3>
+          <div id="advice" class="content-box">Waiting for analysis...</div>
+        </div>
+      </section>
+
+      <section class="content-card">
+        <h3>Original OCR Text</h3>
+        <div id="ocrPreview" class="content-box">Waiting for analysis...</div>
+      </section>
+
+      <section class="chat-card">
+        <div class="chat-head">
+          <div>
+            <h3>Follow-up Questions</h3>
+            <p>
+              You can continue asking questions based on the analyzed document
+              to gain deeper insights.
+            </p>
+          </div>
+        </div>
+
+        <div class="chat-input-row">
+          <input type="text" id="followupInput" placeholder="e.g., What are the three most important points in this document?">
+          <button id="followupBtn">Send</button>
+        </div>
+
+        <div id="followupResult" class="chat-box">Waiting for question...</div>
+      </section>
+    </main>
+  </div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
