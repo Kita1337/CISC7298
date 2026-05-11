@@ -13,7 +13,7 @@ The system supports:
 - OCR text extraction
 - OCR quality evaluation
 - Document structure detection
-- AI-generated document summaries
+- LLM-based document summaries
 - Follow-up question answering
 
 The system is designed to improve document readability and assist users in understanding different types of documents through automated analysis.
@@ -47,7 +47,7 @@ Before running the system, please ensure:
 
 - Python 3.10 or above is installed
 - Tesseract OCR is installed locally
-- A valid Gemini API key is configured
+- A valid Gemini API key is required
 
 Example environment variable:
 
